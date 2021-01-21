@@ -17,13 +17,13 @@ export enum Modules  {
     CINCO=5,
     SEIS=6,
     SETE=7,
-    UNDEFINED="undefined"
+    
 }
 
 
 export enum Type  {
     INTEGRAL = "Integral",
-    NOTURNO = "Noturno"
+    NOTURNO = "Noturna"
 }
 
 

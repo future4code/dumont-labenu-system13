@@ -29,20 +29,23 @@ export const postMission = async (req: Request, res: Response): Promise<void> =>
         const {name, start_date, end_date, type, module}=req.body
         
         let editName = name
-        let editModule = module
+        let editModule: Modules|undefined = module 
         if(type ==="Noturna"){
             editName = name as string + "-na-night"
         }
 
         if(!name|| !start_date || !end_date || !type){
             errorCode = 422
-            throw new Error("Para criar uma nova turma você deve preencher todos os campos! ;)")
+            throw new Error("Para criar uma nova turma você deve preencher os campos 'name', 'start_date', 'end_date' e 'type'. ;)")
         }
 
-        if( start_date > Date.now()){
-            editModule = Modules.UNDEFINED as Modules
+        console.log(new Date(start_date).getTime() , Date.now())
+        
+        if( new Date(start_date).getTime() > Date.now()){
+            editModule = undefined
+            
         }
-
+        
         const mission: Mission={
             name:editName,
             start_date:start_date,
@@ -60,6 +63,6 @@ export const postMission = async (req: Request, res: Response): Promise<void> =>
 
     } catch (error) {
         console.log(error)
-        res.send( error.sqlMessage || error.message )
+        res.send(error.message || error.sqlMessage)
     }
 }
