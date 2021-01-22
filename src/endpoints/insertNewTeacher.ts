@@ -13,11 +13,10 @@ export const insertNewTeacher = async(req: Request,res: Response): Promise<void>
       }
 
       const newTeacher: Teacher = {
-          id: Date.now(),
-          name: req.body.name as string,
-          email: req.body.email as string,
-          birthdate: req.body.date,
-          mission_id: req.body.mission_id,
+          name: name,
+          email: email,
+          birthdate: birthdate,
+          mission_id: mission_id,
       }; 
 
       await selectNewTeacher(newTeacher)
@@ -27,6 +26,7 @@ export const insertNewTeacher = async(req: Request,res: Response): Promise<void>
 
        
     } catch (error) {
-
+        console.log(error)
+        res.send(error.message || error.sqlMessage)
     }
  }

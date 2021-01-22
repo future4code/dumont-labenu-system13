@@ -5,6 +5,7 @@ import dotenv from "dotenv";
 import { AddressInfo } from "net";
 import { getAllUsers } from "./endpoints/getAllUsers";
 import { insertNewTeacher } from "./endpoints/insertNewTeacher";
+import { insertTeacherSpeciality} from "./endpoints/insertTeacherSpeciality";
 
 dotenv.config();
 
@@ -25,7 +26,9 @@ app.use(cors())
 
 app.get("/teachers/all", getAllUsers);
 
-app.post("/teacher/new", insertNewTeacher);
+app.post("/teachers/new", insertNewTeacher);
+
+app.post("/teachers/speciality", insertTeacherSpeciality);
 
 const server = app.listen(process.env.PORT || 3003, () => {
     if (server) {
