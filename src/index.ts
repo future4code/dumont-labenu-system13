@@ -8,6 +8,12 @@ import addStudentMission from "./endpoints/addStudentMission";
 import getStudentAge from "./endpoints/getStudentAge";
 
 
+import { getAllUsers } from "./endpoints/getAllUsers";
+import { insertNewTeacher } from "./endpoints/insertNewTeacher";
+
+
+import{postMission,getAllMission}from"./Turmas/endpointsMission";
+
 dotenv.config();
 
 export const connection = knex({
@@ -28,6 +34,17 @@ app.use(cors())
 app.post("/student", createStudent);
 app.put("/student/mission", addStudentMission);
 app.get("/student/age", getStudentAge);
+
+
+app.get("/teachers/all", getAllUsers);
+
+app.post("/teacher/new", insertNewTeacher);
+
+app.get('/mission/all', getAllMission);
+
+app.post('/mission/create', postMission);
+
+
 
 const server = app.listen(process.env.PORT || 3003, () => {
    if (server) {
