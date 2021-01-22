@@ -3,8 +3,12 @@ import knex from "knex";
 import cors from "cors";
 import dotenv from "dotenv";
 import { AddressInfo } from "net";
+
 import { getAllUsers } from "./endpoints/getAllUsers";
 import { insertNewTeacher } from "./endpoints/insertNewTeacher";
+
+
+import{postMission,getAllMission}from"./Turmas/endpointsMission";
 
 dotenv.config();
 
@@ -23,9 +27,15 @@ const app: Express = express();
 app.use(express.json());
 app.use(cors())
 
+
 app.get("/teachers/all", getAllUsers);
 
 app.post("/teacher/new", insertNewTeacher);
+
+app.get('/mission/all', getAllMission);
+
+app.post('/mission/create', postMission);
+
 
 const server = app.listen(process.env.PORT || 3003, () => {
     if (server) {
