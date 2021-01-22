@@ -1,4 +1,4 @@
-import { connection } from '../index'
+import { connection } from '../../index'
 
 export default async function selectAllUsers():Promise<any> {
     const result = await connection.raw(`

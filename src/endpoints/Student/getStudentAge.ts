@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import selectStudentAge from '../data/selectStudentAge';
+import selectStudentAge from '../../data/Student/selectStudentAge';
 
 export default async function getStudentAge(req: Request, res: Response):Promise<any> {
     try {

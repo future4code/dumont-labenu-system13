@@ -3,17 +3,15 @@ import knex from "knex";
 import cors from "cors";
 import dotenv from "dotenv";
 import { AddressInfo } from "net";
-import createStudent from './endpoints/createStudent';
-import addStudentMission from "./endpoints/addStudentMission";
-import getStudentAge from "./endpoints/getStudentAge";
+import createStudent from './endpoints/Student/createStudent';
+import addStudentMission from "./endpoints/Student/addStudentMission";
+import getStudentAge from "./endpoints/Student/getStudentAge";
 
+import { getAllUsers } from "./endpoints/Teacher/getAllUsers";
+import { insertNewTeacher } from "./endpoints/Teacher/insertNewTeacher";
 
-import { getAllUsers } from "./endpoints/getAllUsers";
-import { insertNewTeacher } from "./endpoints/insertNewTeacher";
-
-
-import{postMission,getAllMission}from"./Turmas/endpointsMission";
-
+import{createMission}from"./endpoints/Mission/createMission";
+import{getAllMission}from"./endpoints/Mission/getAllMission";
 dotenv.config();
 
 export const connection = knex({
@@ -37,12 +35,11 @@ app.get("/student/age", getStudentAge);
 
 
 app.get("/teachers/all", getAllUsers);
-
 app.post("/teacher/new", insertNewTeacher);
 
-app.get('/mission/all', getAllMission);
 
-app.post('/mission/create', postMission);
+app.get('/mission/all', getAllMission);
+app.post('/mission/create',createMission);
 
 
 
