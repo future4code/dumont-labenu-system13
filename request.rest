@@ -7,7 +7,6 @@ http://localhost:3003/mission/all
 post http://localhost:3003/mission/create
 Content-Type: application/json
 
-
 {
     "name": "Murilo Rubião",
     "start_date":"21/01/2020",
@@ -16,6 +15,19 @@ Content-Type: application/json
     "module": "4"
     
 }
+### create teacher
+post http://localhost:3003/teacher/new
+Content-Type: application/json
+
+{
+    "name":"Laís Petra",
+    "email": "laizita@gmail",
+    "birthdate":"08/02/1983",
+    "mission_id":1
+}
+
+
+
 ### Criate student
 post http://localhost:3003/student
 Content-Type: application/json
