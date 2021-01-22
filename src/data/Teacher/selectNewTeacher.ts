@@ -1,5 +1,5 @@
-import { connection } from '../index'
-import { Teacher } from '../types/types'
+import { connection } from '../../index'
+import { Teacher } from '../../types/Teacher/types'
 
 
 export default async function selectNewTeacher(teacher : Teacher):Promise<any> {

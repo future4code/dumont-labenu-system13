@@ -1,10 +1,10 @@
-import insertStudent from "../data/insertStudent";
+import insertStudent from "../../data/Student/insertStudent";
 import { Request, Response } from 'express';
 
 export default async function createStudent(req: Request, res: Response): Promise<void> {
     try {
         const { name, email } = req.body;
-        const birthDate = req.body.birthDate.split("/").reverse().join("/");
+        const {birthDate} = req.body.birthDate.split("/").reverse().join("/");
         
         await insertStudent(name, email, birthDate);
 

@@ -1,5 +1,5 @@
 import knex from 'knex';
-import { connection } from '../index';
+import { connection } from '../../index';
 
 export default async function insertStudent(name: string, email: string, birthDate: string):Promise<void> {
     const result = await connection.raw(`

@@ -1,4 +1,4 @@
-import insertStudentMission from "../data/insertStudentMission";
+import insertStudentMission from "../../data/Student/insertStudentMission";
 import { Request, Response } from 'express';
 
 export default async function createStudent(req: Request, res: Response): Promise<void> {

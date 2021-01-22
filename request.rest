@@ -1,18 +1,27 @@
-
+###Get all mission
 http://localhost:3003/mission/all
 
 
-###
+### create mission
 
 post http://localhost:3003/mission/create
 Content-Type: application/json
 
 
 {
-    "name": "Carlos Drummond de Andrade",
-    "start_date":"2021-02-25",
-    "end_date":"2021-07-26",
-    "type":"Integral",
-    "module": "2"
+    "name": "Murilo Rubião",
+    "start_date":"21/01/2020",
+    "end_date":"23/09/2020",
+    "type":"Noturna",
+    "module": "4"
     
+}
+### Criate student
+post http://localhost:3003/student
+Content-Type: application/json
+
+{
+    "name":"Vovó Juju",
+    "email": "juju_abacate@gmail",
+    "birthdate":"1934-02-30"
 }

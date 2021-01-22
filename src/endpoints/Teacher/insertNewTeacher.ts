@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
-import selectNewTeacher from '../data/selectNewTeacher';
-import { Teacher } from "../types/types";
+import selectNewTeacher from '../../data/Teacher/selectNewTeacher';
+import { Teacher } from "../../types/Teacher/types";
 
 export const insertNewTeacher = async(req: Request,res: Response): Promise<void> =>{
     let errorCode : number = 400

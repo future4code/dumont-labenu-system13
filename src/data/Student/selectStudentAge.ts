@@ -1,4 +1,4 @@
-import { connection } from '../index';
+import { connection } from '../../index';
 import dayjs from 'dayjs';
 
 export default async function selectStudentAge(id: number):Promise<any> {
