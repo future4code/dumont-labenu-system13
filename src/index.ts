@@ -6,13 +6,9 @@ import { AddressInfo } from "net";
 import createStudent from './endpoints/createStudent';
 import addStudentMission from "./endpoints/addStudentMission";
 import getStudentAge from "./endpoints/getStudentAge";
-
-
 import { getAllUsers } from "./endpoints/getAllUsers";
 import { insertNewTeacher } from "./endpoints/insertNewTeacher";
 import { insertTeacherSpeciality} from "./endpoints/insertTeacherSpeciality";
-
-
 import{postMission,getAllMission}from"./Turmas/endpointsMission";
 
 dotenv.config();
@@ -33,9 +29,10 @@ app.use(express.json());
 app.use(cors())
 
 app.post("/student", createStudent);
-app.put("/student/mission", addStudentMission);
-app.get("/student/age", getStudentAge);
 
+app.put("/student/mission", addStudentMission);
+
+app.get("/student/age", getStudentAge);
 
 app.get("/teachers/all", getAllUsers);
 
