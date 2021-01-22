@@ -6,12 +6,12 @@ import { AddressInfo } from "net";
 import createStudent from './endpoints/Student/createStudent';
 import addStudentMission from "./endpoints/Student/addStudentMission";
 import getStudentAge from "./endpoints/Student/getStudentAge";
-
 import { getAllUsers } from "./endpoints/Teacher/getAllUsers";
 import { insertNewTeacher } from "./endpoints/Teacher/insertNewTeacher";
-
 import{createMission}from"./endpoints/Mission/createMission";
 import{getAllMission}from"./endpoints/Mission/getAllMission";
+import { insertTeacherSpeciality } from "./endpoints/Teacher/insertTeacherSpeciality";
+
 dotenv.config();
 
 export const connection = knex({
@@ -30,15 +30,19 @@ app.use(express.json());
 app.use(cors())
 
 app.post("/student", createStudent);
+
 app.put("/student/mission", addStudentMission);
+
 app.get("/student/age", getStudentAge);
 
-
 app.get("/teachers/all", getAllUsers);
+
 app.post("/teacher/new", insertNewTeacher);
 
+app.post("/teacher/speciality", insertTeacherSpeciality)
 
 app.get('/mission/all', getAllMission);
+
 app.post('/mission/create',createMission);
 
 

@@ -5,3 +5,8 @@ export type Teacher = {
     birthdate: string,
     mission_id: number
 }
+
+export type TeacherSpeciality = {
+    teacher_id: number,
+    speciality_id: number
+}
