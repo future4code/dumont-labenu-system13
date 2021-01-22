@@ -10,34 +10,5 @@ export default async function insertStudent(name: string, email: string, birthDa
         )
     `)
     
-    console.log(result);
-
-    if (result[0].length) {
-        const student_id = result[0].id;
-
-        // const hobbies = await connection.raw(`
-        // ${hobbies.map(hobby => {
-        //     `INSERT HOBBY (name) VALUES (
-        //         ${hobby}
-        //     )`
-        // })}
-        // `)
-
-        // if (hobbies[0].length) {
-        //     const student_id = result[0].id;
-
-            // await connection.raw(`
-            // ${hobbies.map(hobby => {
-            //     `INSERT INTO STUDENT_HOBBY (student_id, hobby_id) VALUES (
-            //         ${student_id},
-            //         ${hobby_id}
-            //     )`
-            // })}
-            // `)
-        // }
-        
-    }
-    
-            
-    // return result[0][0];
+    return result[0][0];
 }

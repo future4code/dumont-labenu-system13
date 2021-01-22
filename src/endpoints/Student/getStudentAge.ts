@@ -5,6 +5,10 @@ export default async function getStudentAge(req: Request, res: Response):Promise
     try {
         const { id } = req.body;
         
+        if (!id) {
+            throw new Error("Insira o id do estudante")
+        }
+
         const studentAge = await selectStudentAge(id);
         
         if (!studentAge.length) {
@@ -17,21 +21,3 @@ export default async function getStudentAge(req: Request, res: Response):Promise
         res.send(error.message || error.sqlMessage);
     }
 }
-
-
-// app.get("/actor/:id", async (req: Request, res: Response) => {
-//     try {
-//        const actor = await getActorById(req.params.id);
- 
-//        if (!actor) {
-//           res.statusCode = 404
-//           throw new Error("No actor found")
-//        }
-//        console.log(req.params.id)
-       
-//        res.status(200).send(actor)
-//     } catch (error) {
-//        console.log(req.params.id)
-//        res.send(error.message)
-//     }
-//  });
