@@ -4,12 +4,20 @@ import cors from "cors";
 import dotenv from "dotenv";
 import { AddressInfo } from "net";
 import createStudent from './endpoints/Student/createStudent';
+import changeStudentMission from './endpoints/Student/changeStudentMission';
+import removeStudent from './endpoints/Student/removeStudent';
+import removeStudentMission from './endpoints/Student/removeStudentMission';
+import removeTeacherMission from './endpoints/Teacher/removeTeacherMission';
 import addStudentMission from "./endpoints/Student/addStudentMission";
+import addStudentHobby from "./endpoints/Student/addStudentHobby";
 import getStudentAge from "./endpoints/Student/getStudentAge";
+import getStudentsFromMission from "./endpoints/Student/getStudentsFromMission";
+import getTeachersFromMission from "./endpoints/Teacher/getTeachersFromMission";
+import getStudentsByHobby from "./endpoints/Student/getStudentsByHobby";
 import { getAllUsers } from "./endpoints/Teacher/getAllUsers";
 import { insertNewTeacher } from "./endpoints/Teacher/insertNewTeacher";
-import{createMission}from"./endpoints/Mission/createMission";
-import{getAllMission}from"./endpoints/Mission/getAllMission";
+import { createMission } from"./endpoints/Mission/createMission";
+import { getAllMission } from"./endpoints/Mission/getAllMission";
 import { insertTeacherSpeciality } from "./endpoints/Teacher/insertTeacherSpeciality";
 
 dotenv.config();
@@ -31,7 +39,19 @@ app.use(cors())
 
 app.post("/student", createStudent);
 
-app.put("/student/mission", addStudentMission);
+app.delete("/student/:student_id", removeStudent);
+
+app.get("/student", getStudentsFromMission);
+
+app.post("/student/mission", addStudentMission);
+
+app.put("/student/mission", changeStudentMission);
+
+app.delete("/student/mission", removeStudentMission);
+
+app.put("/student/hobby", addStudentHobby);
+
+app.get("/student/hobby", getStudentsByHobby);
 
 app.get("/student/age", getStudentAge);
 
@@ -39,12 +59,15 @@ app.get("/teachers/all", getAllUsers);
 
 app.post("/teacher/new", insertNewTeacher);
 
+app.delete("/teacher", removeTeacherMission);
+
 app.post("/teacher/speciality", insertTeacherSpeciality)
+
+app.get("/teacher", getTeachersFromMission);
 
 app.get('/mission/all', getAllMission);
 
 app.post('/mission/create',createMission);
-
 
 
 const server = app.listen(process.env.PORT || 3003, () => {
