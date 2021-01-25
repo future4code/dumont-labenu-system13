@@ -20,7 +20,6 @@ export const insertNewTeacher = async(req: Request,res: Response): Promise<void>
       }
 
       const newTeacher: Teacher = {
-          
           name: name,
           email: email, 
           birthdate: editBirthDate,
@@ -31,10 +30,7 @@ export const insertNewTeacher = async(req: Request,res: Response): Promise<void>
 
       res.statusMessage = "Professor adicionado com sucesso!"
       res.status(200).send(newTeacher)
-
-       
     } catch (error) {
-        console.log(error)
         res.send(error.message || error.sqlMessage)
 
     }

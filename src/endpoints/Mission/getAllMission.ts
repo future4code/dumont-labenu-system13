@@ -16,7 +16,6 @@ export const getAllMission = async(req: Request,res: Response): Promise<void> =>
        res.status(200).send(mission)
        
     } catch (error) {
-       console.log(error)
        res.send(error.message || error.sqlMessage)
     }
  }

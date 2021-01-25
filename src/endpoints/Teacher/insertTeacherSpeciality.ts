@@ -7,7 +7,7 @@ export const insertTeacherSpeciality = async(req: Request,res: Response): Promis
     try {
       const {teacher_id, speciality_id} = req.body 
       
-      if(!teacher_id || !speciality_id ){
+      if (!teacher_id || !speciality_id ) {
           errorCode = 422
           throw new Error("Parametros inválidos")
       }
@@ -21,10 +21,7 @@ export const insertTeacherSpeciality = async(req: Request,res: Response): Promis
 
       res.statusMessage = "Professor adicionado com sucesso!"
       res.status(200).send(newTeacherSpeciality)
-
-       
     } catch (error) {
-        console.log(error)
         res.send(error.message || error.sqlMessage)
     }
  }
