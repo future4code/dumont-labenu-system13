@@ -1,9 +1,11 @@
 ###Get all mission
 http://localhost:3003/mission/all
 
+###Get all teacher
+http://localhost:3003/teachers/all
+
 
 ### create mission
-
 post http://localhost:3003/mission/create
 Content-Type: application/json
 
@@ -20,13 +22,11 @@ post http://localhost:3003/teacher/new
 Content-Type: application/json
 
 {
-    "name":"Laís Petra",
-    "email": "laizita@gmail",
-    "birthdate":"08/02/1983",
-    "mission_id":1
+    "name":"Darvino",
+    "email": "darvas@gmail",
+    "birthdate":"18/07/1993",
+    "mission_id":3
 }
-
-
 
 ### Criate student
 post http://localhost:3003/student
